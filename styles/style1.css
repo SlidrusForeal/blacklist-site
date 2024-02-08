@@ -15,12 +15,18 @@ body {
 }
 .list {
   position: relative;
+  list-style-type: none; 
 }
 .list h2 {
   color: #fff;
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 10px;
+}
+
+.list a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .list h3 {
@@ -71,3 +77,4 @@ body {
 .list ul li:hover:before {
   transform: scaleX(1);
 }
+
