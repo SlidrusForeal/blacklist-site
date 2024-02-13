@@ -5,6 +5,11 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+.list img {
+  position: sticky;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -77,4 +82,5 @@ body {
 .list ul li:hover:before {
   transform: scaleX(1);
 }
+
 
