@@ -65,21 +65,3 @@ img {
     height: 24px;
     margin-right: 10px;
 }
-
-audio::-webkit-media-controls-panel {
-    background-color: #888;
-}
-
-audio::-webkit-media-controls-mute-button {
-    background-color: #999;
-    border-radius: 50%;
-}
-
-audio::-webkit-media-controls-play-button {
-    background-color: #999;
-    border-radius: 50%;
-}
-
-audio {
-    margin-top: 50px;
-}
