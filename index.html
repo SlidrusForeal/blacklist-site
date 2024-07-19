@@ -93,10 +93,18 @@
                     resultDiv.textContent = `${playerName} Поздравляем вы в ЧС!`;
                     resultDiv.style.color = 'red';
                 } else {
-                    resultDiv.textContent = `${playerName} Вы не в ЧС! Возможно вы сменили ник.`;
+                    resultDiv.textContent = `${playerName} Вы не в ЧС! возможно вы сменили ник?`;
                     resultDiv.style.color = 'green';
                 }
             }
         </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        let audio = document.querySelector('audio');
+        audio.volume = 0.03 }, false);
+        </script>
+        <audio autoplay>
+            <source src="sos.mp3" />
+          </audio>
     </body>
 </html>
