@@ -1,103 +1,114 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="robots" content="noindex, nofollow">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ЧС Сосмарка</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <link rel="stylesheet" href="styles/style1.css">
-        <link rel="icon" type="image/x-icon" href="ico.png">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Чекер ЧС</h1>
-            <input type="text" id="playerName" placeholder="Введите никнейм">
-            <button onclick="checkBlacklist()">Проверить</button>
-            <div id="result"></div>
-            <button onclick="window.location.href='fullist.html'">Просмотреть весь список</button>
-        </div>
-    
-        <script>
-            const blacklist = [
-                "Revmatist", "AllShab", "MrNabuy", "Comrade_Tokov", "Vocallolonik",
-                "Pax_Andronika", "Comrade_Mikhail_", "Mironelix", "Retselv", "Efreiter",
-                "Divan2000", "DiogEn_7", "Ksilexs", "Semionik", "AKPHAK", "avale1648",
-                "AVTO_LuxShisik", "XYWINGS", "Kriss_Dark", "Lyudvig_94", "ZhuravlevX",
-                "IgorMin", "Coconut5364", "brookdluffy", "Ya_pivas", "raymccartan",
-                "Tinker_NOD", "Markowka_", "kwexi", "Xinoki", "levnemcev", "__ZibsiS__",
-                "Genvey", "Gorynych", "MishaOv", "cakechalk", "Viktorovich_", "Gribosvet",
-                "Jeleiaka", "Ralse1_Fan", "_pastich_", "Otto_Weiss", "Defenber", "FenyaII",
-                "Meruniti", "RenChik_", "MaKenToshhh", "BJlADblKA_kv777", "SVshka", "NovaR1k",
-                "_Kisel4ik_", "tr1color", "Alossser", "lyalya_Iz_AGMD", "utkanavt",
-                "KILLIJlAK", "fybrfo", "Sokich", "mainhost", "arlek1ng",
-                "Gnomik_Vasa", "SnrChuya", "Timonder007", "kriin_", "Alexr27", "r1zz3",
-                "Tashimka", "__gabriella__", "notmorphin", "Yanva", "E6ALLIY_B_XJIAM", "Dava_Wasab",
-                "NotSnaker_iz_322", "00ABGz", "00Daruma", "Semiraxd", "AsidSin", "Mayzito", "BIHGO",
-                "Laever", "Zadudoderr", "l1n1ks", "masterskaya_", "Moksy44", "NotsuruSound",
-                "kitekatura", "Ryrver", "spacekot", "SteamBuildier", "TebeNeSvetit",
-                "egor__pomidor", "Fuyumiki", "CyberKpblsa", "Prynik71", "rezdne_wagner",
-                "flaidy42", "Fristikon", "Assbecov_", "BoltozvakGaikoeb", "crazysecret",
-                "deddda", "Dlesti", "1_gobnik", "flameach", "pqunkers_Iz_AGMD", "_ayanokouji",
-                "xligenda", "LamyRka", "analspazm", "PaperPank", "Vampi_is_Me",
-                "SFastikF", "slesar300", "solumus_maximus", "VesnaF", "vPups", "xiao8bet",
-                "GYTU", "apelSINUS", "S1r1on", "Modjik", "alexpoint", "MegaByte2H",
-                "Molldyn", "kolapro", "iwtdie", "_Ded_Perdet21_", "ZalaForesta", "_Hendel_",
-                "UJIFERINA", "Xanchyyk", "Hvani_femboy", "Plazzy_Tw", "Pepsik69", "CEKT0P",
-                "osel3000", "FruREN", "ValikWho", "Heronchek", "kaismais", "Nosicov",
-                "0Sachalinec0", "HikaChino_2233", "Ramzey_", "lobav", "MaxLain",
-                "Swino4ka", "Nordwain_", "00faceless00", "SleepWxlker", "MopSsiK_Lapo4ka",
-                "Zabwenus", "Sibistel", "Kpaxmall", "Xiiaoooo", "HutagerBack",
-                "DoctorHell666", "she2kopr9d", "Foxyan4ik42", "_Denisiel_", "CyberPelmeshik",
-                "S1ark_", "Block_Peska", "forfii", "ZertinWard", "Mrketchup8841", "Pronew_2019",
-                "Blarfik", "qweire", "SannttoLiLLLeann", "1NkShizo", "UnkVirus", "Korobka_1",
-                "Kiryaaa", "Pengven228", "xyzrxl", "ky1nk1", "_boxee_", "8strontium8",
-                "DimaFyodorov", "Irpen", "CAMOKAT_BETEPAHA", "AlexBruuh", "Kamandar", "mulltuk",
-                "Ohlamon", "markosaft_", "Upolnomoch_Kifir", "Kissalin", "Oulls", "Galya_Fontan",
-                "railxuy", "Mohovidniy", "Tsar_poketik", "Borsalss", "Difub", "_Gelzy", "monkey1447",
-                "TO_MUCH", "YeLis64", "TPABOMAH_", "Ak1ra_Horny", "ligofff", "firro17",
-                "70yo", "Tsuk1ii", "krytoinosok", "4epyx__", "Animun4ik", "_Venjam1n_",
-                "AnderFan", "Barlisman", "ByR1lt1n", "shaizadinov", "Yashechka", "cpt_weedeye",
-                "Differsion", "ellipsiso", "Foxeoio751", "_MrBee_", "kakashechka", "Kirnau17",
-                "KutFat", "kvent1n", "kymoizi", "Lenyks", "lhijkb", "AugustNV", "Lopovski",
-                "MamdiKek", "Mashukoo", "MrCkiland", "NaItvInG", "nessyyx", "NeverLoveSky",
-                "00SunRay00", "opl69", "Oyasima", "poopirka", "QuartzWaw", "Samsami4ed",
-                "Shakoraze", "ShooxFuzll", "_ReadTree_", "SoFi4Ka_", "SpeeDPuppy", "Sychie",
-                "TimeSking", "Vebstors", "vlady_y", "WenyaFox", "Zannanel", "Brigella",
-                "Hi_craft", "obebaa", "Zinino", "GEB0_", "over144000",
-                "Xomkaaaaaa", "Gold1_", "Alex_Normalni", "korn4pl0d", "SillyFoxxo", "_Luk__",
-                "KOPOlb_SARATOVA", "ignatick_nyashka", "loloipka", "Mo0nRay", "F1owering", "pgally",
-                "kepckuk", "Sauhuk", "_Neo_Samurai_8_", "Terendefloc", "Starry_Blick",
-                "SnakeRuslan", "bitvu", "cheharka", "EnoKast", "Gigiretu", "Foxyen", "Tamommy",
-                "mistrMonstr", "TornPaint", "kekish_", "bergusha", "MerayFresh_", "janpol_",
-                "LolKa255", "Alexr27", "DmitrySij", "layndner", "lesaf", "Paxd1_", "LekcaHDp",
-                "ilyusha_1", "AJLeX57", "V00bz", "12NikitaVins", "r0mb_ek", "_LegaSyslik_",
-                "_Tecxas", "Amadela_1", "BanananT", "biswec", "Keorvane", "clownya57",
-                "dogi_bb", "kurumihere", "Forior", "Fupnew", "Heronchek", "HukoJlau_06",
-                "KaRozik", "Kareux", "Lentasy", "Makrel3", "nurofenchik998", "PomeloS__",
-                "prosto_anandy", "Tekletu", "Tigranitos", "DanyaNeyk", "Mazir0k", "srekko_f",
-                "Wioaru", "Myatnaya", "lobster_dobrias", "__Risa", "Elae4ik", "Joosyaww",
-                "Srastich", "Kislota", "Homura128", "prismerr", "DmitriyNagiev57", "ByHanko",
-                "MitoBBN", "A9C3C6_iz_658", "s1ben", "miyalvoda", "Reamix_", "Enarioo","Tefynder"
-            ].map(name => name.toLowerCase());
-        
-            function checkBlacklist() {
-                const playerName = document.getElementById('playerName').value.toLowerCase();
-                const resultDiv = document.getElementById('result');
-        
-                if (blacklist.includes(playerName)) {
-                    resultDiv.textContent = `${playerName} поздравляем вы в ЧС!`;
-                    resultDiv.style.color = 'red';
-                } else {
-                    resultDiv.textContent = `${playerName} вы не в ЧС! Возможно вы сменили ник?`;
-                    resultDiv.style.color = 'green';
-                }
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ЧС Сосмарка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style1.css">
+    <link rel="icon" type="image/x-icon" href="ico.png">
+</head>
+<body>
+    <div class="container">
+        <h1>Чекер ЧС</h1>
+        <input type="text" id="playerName" placeholder="Введите никнейм" list="suggestions" oninput="updateSuggestions()">
+        <datalist id="suggestions"></datalist>
+        <button onclick="checkBlacklist()">Проверить</button>
+        <div id="result" style="color: green;">k1zik вы не в ЧС! Возможно вы сменили ник?</div>
+        <button onclick="window.location.href='fullist.html'">Просмотреть весь список</button>
+    </div>
+
+    <script>
+        const blacklist = [
+            "Revmatist", "AllShab", "MrNabuy", "Comrade_Tokov", "Vocallolonik",
+            "Pax_Andronika", "Comrade_Mikhail_", "Mironelix", "Retselv", "Efreiter",
+            "Divan2000", "DiogEn_7", "Ksilexs", "Semionik", "AKPHAK", "avale1648",
+            "AVTO_LuxShisik", "XYWINGS", "Kriss_Dark", "Lyudvig_94", "ZhuravlevX",
+            "IgorMin", "Coconut5364", "brookdluffy", "Ya_pivas", "raymccartan",
+            "Tinker_NOD", "Markowka_", "kwexi", "Xinoki", "levnemcev", "__ZibsiS__",
+            "Genvey", "Gorynych", "MishaOv", "cakechalk", "Viktorovich_", "Gribosvet",
+            "Jeleiaka", "Ralse1_Fan", "_pastich_", "Otto_Weiss", "Defenber", "FenyaII",
+            "Meruniti", "RenChik_", "MaKenToshhh", "BJlADblKA_kv777", "SVshka", "NovaR1k",
+            "_Kisel4ik_", "tr1color", "Alossser", "lyalya_Iz_AGMD", "utkanavt",
+            "KILLIJlAK", "fybrfo", "Sokich", "mainhost", "arlek1ng",
+            "Gnomik_Vasa", "SnrChuya", "Timonder007", "kriin_", "Alexr27", "r1zz3",
+            "Tashimka", "__gabriella__", "notmorphin", "Yanva", "E6ALLIY_B_XJIAM", "Dava_Wasab",
+            "NotSnaker_iz_322", "00ABGz", "00Daruma", "Semiraxd", "AsidSin", "Mayzito", "BIHGO",
+            "Laever", "Zadudoderr", "l1n1ks", "masterskaya_", "Moksy44", "NotsuruSound",
+            "kitekatura", "Ryrver", "spacekot", "SteamBuildier", "TebeNeSvetit",
+            "egor__pomidor", "Fuyumiki", "CyberKpblsa", "Prynik71", "rezdne_wagner",
+            "flaidy42", "Fristikon", "Assbecov_", "BoltozvakGaikoeb", "crazysecret",
+            "deddda", "Dlesti", "1_gobnik", "flameach", "pqunkers_Iz_AGMD", "_ayanokouji",
+            "xligenda", "LamyRka", "analspazm", "PaperPank", "Vampi_is_Me",
+            "SFastikF", "slesar300", "solumus_maximus", "VesnaF", "vPups", "xiao8bet",
+            "GYTU", "apelSINUS", "S1r1on", "Modjik", "alexpoint", "MegaByte2H",
+            "Molldyn", "kolapro", "iwtdie", "_Ded_Perdet21_", "ZalaForesta", "_Hendel_",
+            "UJIFERINA", "Xanchyyk", "Hvani_femboy", "Plazzy_Tw", "Pepsik69", "CEKT0P",
+            "osel3000", "FruREN", "ValikWho", "Heronchek", "kaismais", "Nosicov",
+            "0Sachalinec0", "HikaChino_2233", "Ramzey_", "lobav", "MaxLain",
+            "Swino4ka", "Nordwain_", "00faceless00", "SleepWxlker", "MopSsiK_Lapo4ka",
+            "Zabwenus", "Sibistel", "Kpaxmall", "Xiiaoooo", "HutagerBack",
+            "DoctorHell666", "she2kopr9d", "Foxyan4ik42", "_Denisiel_", "CyberPelmeshik",
+            "S1ark_", "Block_Peska", "forfii", "ZertinWard", "Mrketchup8841", "Pronew_2019",
+            "Blarfik", "qweire", "SannttoLiLLLeann", "1NkShizo", "UnkVirus", "Korobka_1",
+            "Kiryaaa", "Pengven228", "xyzrxl", "ky1nk1", "_boxee_", "8strontium8",
+            "DimaFyodorov", "Irpen", "CAMOKAT_BETEPAHA", "AlexBruuh", "Kamandar", "mulltuk",
+            "Ohlamon", "markosaft_", "Upolnomoch_Kifir", "Kissalin", "Oulls", "Galya_Fontan",
+            "railxuy", "Mohovidniy", "Tsar_poketik", "Borsalss", "Difub", "_Gelzy", "monkey1447",
+            "TO_MUCH", "YeLis64", "TPABOMAH_", "Ak1ra_Horny", "ligofff", "firro17",
+            "70yo", "Tsuk1ii", "krytoinosok", "4epyx__", "Animun4ik", "_Venjam1n_",
+            "AnderFan", "Barlisman", "ByR1lt1n", "shaizadinov", "Yashechka", "cpt_weedeye",
+            "Differsion", "ellipsiso", "Foxeoio751", "_MrBee_", "kakashechka", "Kirnau17",
+            "KutFat", "kvent1n", "kymoizi", "Lenyks", "lhijkb", "AugustNV", "Lopovski",
+            "MamdiKek", "Mashukoo", "MrCkiland", "NaItvInG", "nessyyx", "NeverLoveSky",
+            "00SunRay00", "opl69", "Oyasima", "poopirka", "QuartzWaw", "Samsami4ed",
+            "Shakoraze", "ShooxFuzll", "_ReadTree_", "SoFi4Ka_", "SpeeDPuppy", "Sychie",
+            "TimeSking", "Vebstors", "vlady_y", "WenyaFox", "Zannanel", "Brigella",
+            "Hi_craft", "obebaa", "Zinino", "GEB0_", "over144000",
+            "Xomkaaaaaa", "Gold1_", "Alex_Normalni", "korn4pl0d", "SillyFoxxo", "_Luk__",
+            "KOPOlb_SARATOVA", "ignatick_nyashka", "loloipka", "Mo0nRay", "F1owering", "pgally",
+            "kepckuk", "Sauhuk", "_Neo_Samurai_8_", "Terendefloc", "Starry_Blick",
+            "SnakeRuslan", "bitvu", "cheharka", "EnoKast", "Gigiretu", "Foxyen", "Tamommy",
+            "mistrMonstr", "TornPaint", "kekish_", "bergusha", "MerayFresh_", "janpol_",
+            "LolKa255", "Alexr27", "DmitrySij", "layndner", "lesaf", "Paxd1_", "LekcaHDp",
+            "ilyusha_1", "AJLeX57", "V00bz", "12NikitaVins", "r0mb_ek", "_LegaSyslik_",
+            "_Tecxas", "Amadela_1", "BanananT", "biswec", "Keorvane", "clownya57",
+            "dogi_bb", "kurumihere", "Forior", "Fupnew", "Heronchek", "HukoJlau_06",
+            "KaRozik", "Kareux", "Lentasy", "Makrel3", "nurofenchik998", "PomeloS__",
+            "prosto_anandy", "Tekletu", "Tigranitos", "DanyaNeyk", "Mazir0k", "srekko_f",
+            "Wioaru", "Myatnaya", "lobster_dobrias", "__Risa", "Elae4ik", "Joosyaww",
+            "Srastich", "Kislota", "Homura128", "prismerr", "DmitriyNagiev57", "ByHanko",
+            "MitoBBN", "A9C3C6_iz_658", "s1ben", "miyalvoda", "Reamix_", "Enarioo","Tefynder"
+        ].map(name => name.toLowerCase());
+
+        function checkBlacklist() {
+            const playerName = document.getElementById('playerName').value.toLowerCase();
+            const resultDiv = document.getElementById('result');
+
+            if (blacklist.includes(playerName)) {
+                resultDiv.textContent = `${playerName} поздравляем вы в ЧС!`;
+                resultDiv.style.color = 'red';
+            } else {
+                resultDiv.textContent = `${playerName} вы не в ЧС! Возможно вы сменили ник?`;
+                resultDiv.style.color = 'green';
             }
-        </script>
-        
-    </body>
+        }
+
+        function updateSuggestions() {
+            const input = document.getElementById('playerName').value.toLowerCase();
+            const suggestions = document.getElementById('suggestions');
+            suggestions.innerHTML = '';
+
+            if (input.length > 0) {
+                const matches = blacklist.filter(name => name.startsWith(input));
+                matches.forEach(name => {
+                    const option = document.createElement('option');
+                    option.value = name;
+                    suggestions.appendChild(option);
+                });
+            }
+        }
+    </script>
+</body>
 </html>
