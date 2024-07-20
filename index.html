@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Чекер ЧС</h1>
-        <input type="text" id="playerName" placeholder="Введите никнейм" list="suggestions" oninput="updateSuggestions()">
+        <input type="text" id="playerName" placeholder="Введите никнейм" list="suggestions" oninput="updateSuggestions()" autocomplete="off">
         <datalist id="suggestions"></datalist>
         <button onclick="checkBlacklist()">Проверить</button>
         <div id="result"></div>
