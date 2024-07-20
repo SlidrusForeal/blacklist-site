@@ -1,23 +1,57 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ЧС Сосмарка</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel="stylesheet" href="styles/style1.css">
-    <link rel="icon" type="image/x-icon" href="ico.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blacklist Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Черный список Второй Сосмаркской Империи</h1>
-        <ul id="blacklist"></ul>
-        <button onclick="window.location.href='index.html'">Вернуться к чекеру</button>
+        <h1>Blacklist Checker</h1>
+        <input type="text" id="playerName" placeholder="Enter Minecraft username">
+        <button onclick="checkBlacklist()">Check</button>
+        <div id="result"></div>
+        <button onclick="window.location.href='blacklist.html'">View Blacklist</button>
     </div>
 
     <script>
@@ -367,26 +401,52 @@
             { name: "Tefynder", uuid: "61e41f638df34de0a4bccb77a1b7e9ac" }
         ];
 
-        function loadBlacklist() {
-            const blacklistUl = document.getElementById('blacklist');
-            blacklist.forEach(player => {
-                const li = document.createElement('li');
-                const img = document.createElement('img');
-                img.src = `https://mc-heads.net/avatar/${player.uuid}`;
-                img.alt = `${player.name}'s face`;
-
-                const link = document.createElement('a');
-                link.href = `https://namemc.com/profile/${player.uuid}`;
-                link.target = '_blank'; // Opens the link in a new tab
-                link.textContent = player.name;
-
-                li.appendChild(img);
-                li.appendChild(link);
-                blacklistUl.appendChild(li);
-            });
+        async function fetchUUID(name) {
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const targetUrl = `https://api.mojang.com/users/profiles/minecraft/${name}`;
+            try {
+                const response = await fetch(proxyUrl + targetUrl);
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(`UUID for ${name}: ${data.id}`);
+                    return data.id; // Return the UUID
+                } else {
+                    console.error(`Failed to fetch UUID for ${name}. Status: ${response.status}`);
+                }
+            } catch (error) {
+                console.error("Error fetching UUID:", error);
+            }
+            return null;
         }
 
-        window.onload = loadBlacklist;
+        async function checkBlacklist() {
+            const playerName = document.getElementById('playerName').value.trim();
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = "Checking...";
+            resultDiv.style.color = 'black';
+
+            if (!playerName) {
+                resultDiv.textContent = "Please enter a username.";
+                resultDiv.style.color = 'orange';
+                return;
+            }
+
+            const uuid = await fetchUUID(playerName);
+
+            if (uuid) {
+                const isInBlacklist = blacklist.some(player => player.uuid === uuid);
+                if (isInBlacklist) {
+                    resultDiv.textContent = `${playerName} Поздравляем вы в ЧС!`;
+                    resultDiv.style.color = 'red';
+                } else {
+                    resultDiv.textContent = `${playerName} Вы не в ЧС! Возможно вы сменили ник?`;
+                    resultDiv.style.color = 'green';
+                }
+            } else {
+                resultDiv.textContent = `Не удалось найти UUID для пользователя ${playerName}.`;
+                resultDiv.style.color = 'orange';
+            }
+        }
     </script>
 </body>
 </html>
