@@ -83,12 +83,12 @@
                 "Wioaru", "Myatnaya", "lobster_dobrias", "__Risa", "Elae4ik", "Joosyaww",
                 "Srastich", "Kislota", "Homura128", "prismerr", "DmitriyNagiev57", "ByHanko",
                 "MitoBBN", "A9C3C6_iz_658", "s1ben", "miyalvoda", "Reamix_", "Enarioo","Tefynder"
-            ];
-    
+            ].map(name => name.toLowerCase());
+        
             function checkBlacklist() {
-                const playerName = document.getElementById('playerName').value;
+                const playerName = document.getElementById('playerName').value.toLowerCase();
                 const resultDiv = document.getElementById('result');
-    
+        
                 if (blacklist.includes(playerName)) {
                     resultDiv.textContent = `${playerName} Поздравляем вы в ЧС!`;
                     resultDiv.style.color = 'red';
@@ -98,5 +98,6 @@
                 }
             }
         </script>
+        
     </body>
 </html>
