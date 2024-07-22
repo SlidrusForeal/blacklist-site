@@ -367,12 +367,8 @@
             ];
 
         function loadBlacklist() {
-            const blacklistUl = document.getElementById('blacklist');
-            blacklist.forEach(player => {
-                const li = document.createElement('li');
-                const img = document.createElement('img');
-                img.src = `https://mc-heads.net/avatar/${player.uuid}`;
-                img.alt = `${player.name}'s face`;
+                const blacklistUl = document.getElementById('blacklist');
+                const fragment = document.createDocumentFragment();
 
                 blacklist.forEach(player => {
                     const li = document.createElement('li');
