@@ -7,19 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <script type="text/javascript" src="scripts/checker.js"></script>
-    <script type="text/javascript" defer src="scripts/splash.js"></script>
+    <script type="text/javascript" src="scripts/modal.js"></script>
     <link rel="icon" type="image/x-icon" href="ico.png">
+    <meta property="og:site_name" content="ЧС Сосмарка">
+    <meta property="og:image" content="ico.png">
     <meta name="description" content="Проверьте себя есть ли вы в чёрном списке Второй Сосмаркской Империи на приватном сервере Майнкрафт СПмакси">
+    <meta property="og:description" content="Проверьте себя есть ли вы в чёрном списке Второй Сосмаркской Империи на приватном сервере Майнкрафт СПмакси">
     <meta name="keywords" content="Чёрный список сосмарк, сосмарк, Вторая Сосмаркская Империя, СПмини, СПмакси">
+    <script defer>
+        console.log(`
+░█████╗░██╗░░░██╗███████╗  ░██████╗░█████╗░░██████╗  
+██╔══██╗██║░░░██║██╔════╝  ██╔════╝██╔══██╗██╔════╝  
+███████║╚██╗░██╔╝█████╗░░  ╚█████╗░██║░░██║╚█████╗░  
+██╔══██║░╚████╔╝░██╔══╝░░  ░╚═══██╗██║░░██║░╚═══██╗  
+██║░░██║░░╚██╔╝░░███████╗  ██████╔╝╚█████╔╝██████╔╝  
+╚═╝░░╚═╝░░░╚═╝░░░╚══════╝  ╚═════╝░░╚════╝░╚═════╝░  
+
+██████╗░███████╗██╗░░░██╗░██████╗  ██████╗░░█████╗░██╗░░░░░██╗░░░░░░██████╗
+██╔══██╗██╔════╝██║░░░██║██╔════╝  ██╔══██╗██╔══██╗██║░░░░░██║░░░░░██╔════╝
+██║░░██║█████╗░░██║░░░██║╚█████╗░  ██████╦╝███████║██║░░░░░██║░░░░░╚█████╗░
+██║░░██║██╔══╝░░██║░░░██║░╚═══██╗  ██╔══██╗██╔══██║██║░░░░░██║░░░░░░╚═══██╗
+██████╔╝███████╗╚██████╔╝██████╔╝  ██████╦╝██║░░██║███████╗███████╗██████╔╝
+╚═════╝░╚══════╝░╚═════╝░╚═════╝░  ╚═════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░
+`)</script>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="fullist.html">Чёрный список</a></li>
+            </ul>
+        </nav>
+    </header>
+    <noscript>You need to enable JavaScript to run this app.</noscript>  
+    <div id="notification" class="notification"></div>
     <div class="container">
         <h1>Чекер ЧС</h1>
         <input type="text" id="playerName" placeholder="Введите никнейм" list="suggestions" oninput="updateSuggestions()" autocomplete="off">
         <datalist id="suggestions"></datalist>
         <button onclick="checkBlacklist()">Проверить</button>
         <div id="result"></div>
-        <button onclick="window.location.href='fullist.html'">Просмотреть весь список</button>
     </div>
     <div class="splash" id="splashText"></div>
     <footer>

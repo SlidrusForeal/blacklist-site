@@ -347,15 +347,16 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "n_15", uuid: "e8693feef27748449156b168415e6d4d"}
     ];
 
-function loadBlacklist() {
+    function loadBlacklist() {
         const blacklistUl = document.getElementById('blacklist');
         const fragment = document.createDocumentFragment();
 
         blacklist.forEach(player => {
             const li = document.createElement('li');
+            li.style.animation = 'fadeIn 1s ease-in-out';
 
             const img = document.createElement('img');
-            img.src = `https://mc-heads.net/avatar/${player.uuid}`;
+            img.src = `https://crafatar.com/avatars/${player.uuid}?overlay`;
             img.alt = `${player.name}'s face`;
 
             const link = document.createElement('a');
@@ -369,6 +370,16 @@ function loadBlacklist() {
         });
 
         blacklistUl.appendChild(fragment);
+        showNotification("Черный список загружен");
+    }
+
+    function showNotification(message) {
+        const notification = document.getElementById('notification');
+        notification.textContent = message;
+        notification.style.visibility = 'visible';
+        setTimeout(() => {
+            notification.style.visibility = 'hidden';
+        }, 3000);
     }
 
     loadBlacklist();

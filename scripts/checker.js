@@ -1,3 +1,50 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const splashes = [
+        "У нас нет defss_KPACABA!",
+        "Kislota был добавлен ради пасхалки!",
+        "Блин 1_AlexCot_1, 1_AlexPes_1, 1_AlexXep_1 тоже нет!",
+        "Ой забаненных не чистим...",
+        "Нас уже 345!",
+        "Welcome to Sosmark!",
+        "Краткий пересказ. Дистопия, ФСБ которые пришли с rezdne_wagner, СМЕХ, мёртвый город, комунисты с СП, Мунвиль, люди которые высказывались в чате про нас",
+        "А у вашего города есть чекер чс?)",
+        "3 самолёта против толпы людей в топках  — 16.06.2024",
+        "Век соси - век пересасывай",
+        "Нельзя сжечь то что хранится в шести копиях",
+        "Надёжнее всего писать не город а НИК!",
+        "Моджанг запретило мне автоматически менять ники!",
+        "Чтобы изменить мир, нужна красивая ложь и море крови.",
+        "Одна строчка в ЧС становится причиной ярости некого rezdne_wagner.",
+        "Да мы титры из звёздных войн!",
+        "Кто прочитает быстрее всех все ники в чс тот попадёт в рандомные надписи!",
+        "Чтобы попасть в ЧС напишите сюда sosmarkblacklist@gmail.com (нет)",
+        "Спросите у defss_KPACABA как он вышел из ЧС (если он помнит ещё..)",
+        "Wolint правда хочешь остатся в истории здесь? напиши в чат дискорда спм или сосмарка устроим. Кто нибудь передайте",
+        "AVE SOS, DEUS OVA",
+        "Наш бюджет 1500 АР!",
+        "1984",
+        "100% Сосский",
+        "Помянем",
+        "Tobey Maguire got bit by a spider, but see, me, it was a goat",
+        "😈",
+        "🥚🥚🥚"
+    ];
+
+
+    function getRandomSplash(splashes) {
+        const randomIndex = Math.floor(Math.random() * splashes.length);
+        return splashes[randomIndex];
+    }
+
+    function displayRandomSplash() {
+        const splashTextElement = document.getElementById('splashText');
+        const randomSplash = getRandomSplash(splashes);
+        splashTextElement.textContent = randomSplash;
+    }
+
+    displayRandomSplash();
+});
+
 const blacklist = [
     "Revmatist", "AllShab", "MrNabuy", "Comrade_Tokov", "Vocallolonik",
     "Pax_Andronika", "Comrade_Mikhail_", "Mironelix", "Retselv", "Efreiter",
@@ -60,20 +107,46 @@ const blacklist = [
     "MitoBBN", "A9C3C6_iz_658", "s1ben", "miyalvoda", "Reamix_", "Enarioo","Tefynder","n_15","IvTuSTAFF"
 ].map(name => name.toLowerCase());
 
+function applyAnimation(element, animationName) {
+    element.style.animation = `${animationName} 0.5s`;
+
+    element.addEventListener('animationend', () => {
+        element.style.animation = '';
+    }, { once: true });
+}
+
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.visibility = 'visible';
+    setTimeout(() => {
+        notification.style.visibility = 'hidden';
+    }, 3000);
+}
+
 function checkBlacklist() {
     const playerName = document.getElementById('playerName').value.toLowerCase();
     const resultDiv = document.getElementById('result');
-    if (playerName === "") {
-        resultDiv.textContent = "Строка ввода пуста. Пожалуйста, введите никнейм.";
-        resultDiv.style.color = 'orange';
-    } else if (blacklist.includes(playerName)) {
-        resultDiv.textContent = `${playerName} поздравляем вы в ЧС!`;
-        resultDiv.style.color = 'red';
-    } else {
-        resultDiv.textContent = `${playerName} вы не в ЧС! Возможно вы сменили ник?`;
-        resultDiv.style.color = 'green';
-    }
+    
+    showNotification("Запрос обрабатывается...");
+
+    setTimeout(() => {
+        if (playerName === "") {
+            resultDiv.textContent = "Строка ввода пуста. Пожалуйста, введите никнейм.";
+            resultDiv.style.color = 'orange';
+            applyAnimation(resultDiv, 'shake');
+        } else if (blacklist.includes(playerName)) {
+            resultDiv.textContent = `${playerName}, поздравляем вы в ЧС!`;
+            resultDiv.style.color = 'red';
+            applyAnimation(resultDiv, 'shake');
+        } else {
+            resultDiv.textContent = `${playerName}, вы не в ЧС! Возможно вы сменили ник?`;
+            resultDiv.style.color = 'green';
+            applyAnimation(resultDiv, 'bounce');
+        }
+    }, 1000);
 }
+
 function updateSuggestions() {
     const input = document.getElementById('playerName').value.toLowerCase();
     const suggestions = document.getElementById('suggestions');
