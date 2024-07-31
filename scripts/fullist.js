@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.style.animation = 'fadeIn 1s ease-in-out';
 
             const img = document.createElement('img');
-            img.src = `https://mc-heads.net/avatar/${player.uuid}`;
+            img.src = `https://vzge.me/face/180/${player.uuid}`;
             img.alt = `${player.name}'s face`;
 
             const link = document.createElement('a');
