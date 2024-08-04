@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "osel3000", uuid: "f123c128d8da4ff7a09c82e3ad81b96f" },
         { name: "FruREN", uuid: "1949bb845b5842d2bab7285336b16b9a" },
         { name: "ValikWho", uuid: "bad44e76b9214074ace10ed1d0a8e3e5" },
-        { name: "Heronchek", uuid: "d261b9b95c434e3491bd47ec4a175e22" },
+        { name: "MrSidorovich", uuid: "76c91a67ac2e4f6ba1f174fcfe1a6c2d" },
         { name: "kaismais", uuid: "84166df2157d4daab13f804c425371ad" },
         { name: "Nosicov", uuid: "56ee72deec094d5c9968983dbd56b967" },
         { name: "0Sachalinec0", uuid: "13820da4b4384242a74e2ccda0185b18" },
@@ -344,7 +344,23 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Enarioo", uuid: "4d1f0f482d8a46dea80c219a2eafba5d" },
         { name: "Tefynder", uuid: "61e41f638df34de0a4bccb77a1b7e9ac" },
         { name: "IvTuSTAFF", uuid: "37e85a1bc5e8474596639a91cd3dd517"},
-        { name: "n_15", uuid: "e8693feef27748449156b168415e6d4d"}
+        { name: "n_15", uuid: "e8693feef27748449156b168415e6d4d"},
+        { name: "A2ananasik", uuid: "d92db210a1a7414889b1bfcb1c9f1320" },
+        { name: "vehers", uuid: "581db42b6c6442d6a9ae5949110d03f9" },
+        { name: "Artemii023", uuid: "c65be684db7646d68471fc094f7c82ec" },
+        { name: "MiloDer", uuid: "95b1c97d0d724518a7555531e3a2f8ef" },
+        { name: "DeL1TMe", uuid: "6a640b6787f0456a8f4da65aeb55f4f4" },
+        { name: "MAUCAT_bb", uuid: "28a9431c097d46a1b393fde3802fba22" },
+        { name: "DranikUwU", uuid: "98ce571614ed41fbaa5440b36c39cabe" },
+        { name: "Popi171201", uuid: "1dd9e06879e94a0dbe37ab738eac20ef" },
+        { name: "MrArekusu", uuid: "5c5bc23da48142e28fb2f15f859fb394" },
+        { name: "Lanesh_", uuid: "1ec910e340dc4184939cfb58bd6d927f" },
+        { name: "mamory", uuid: "b89694185b5649debd6de17373f1e64b" },
+        { name: "povich_S3XY_POPA", uuid: "58c366f95bff4c4e8685f1877c983f06" },
+        { name: "Dead_soul", uuid: "57ee180f4a0a44c7bb427969a17df0cc" },
+        { name: "PianoCube3703", uuid: "2c3193e6e9774c93af1ffd7463878c81" },
+        { name: "SergZt2279", uuid: "9547165d66014ab698c8a4e026d1a4d8" },
+        { name: "Simakin", uuid: "75a478b8eb1b41b7ad610144617ec5d8" }
     ];
 
     function loadBlacklist() {
