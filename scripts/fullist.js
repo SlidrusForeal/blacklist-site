@@ -360,7 +360,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Dead_soul", uuid: "57ee180f4a0a44c7bb427969a17df0cc" },
         { name: "PianoCube3703", uuid: "2c3193e6e9774c93af1ffd7463878c81" },
         { name: "SergZt2279", uuid: "9547165d66014ab698c8a4e026d1a4d8" },
-        { name: "Simakin", uuid: "75a478b8eb1b41b7ad610144617ec5d8" }
+        { name: "Simakin", uuid: "75a478b8eb1b41b7ad610144617ec5d8" },
+        { name: "_ReadTree_", uuid: "8730a159-4221-453e-b686-63f660c6ed62"}
     ];
 
     function loadBlacklist() {
