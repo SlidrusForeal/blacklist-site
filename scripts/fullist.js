@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     const blacklist = [
         { name: "Revmatist", uuid: "012f15357e9044ed8920da3e036cf004" },
         { name: "AllShab", uuid: "148005f94cfe46d8bbe20edabfcb8c0a" },
@@ -343,8 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Reamix_", uuid: "69ab2d347744447899c00b95ed3d59a8" },
         { name: "Enarioo", uuid: "4d1f0f482d8a46dea80c219a2eafba5d" },
         { name: "Tefynder", uuid: "61e41f638df34de0a4bccb77a1b7e9ac" },
-        { name: "IvTuSTAFF", uuid: "37e85a1bc5e8474596639a91cd3dd517"},
-        { name: "n_15", uuid: "e8693feef27748449156b168415e6d4d"},
+        { name: "IvTuSTAFF", uuid: "37e85a1bc5e8474596639a91cd3dd517" },
+        { name: "n_15", uuid: "e8693feef27748449156b168415e6d4d" },
         { name: "A2ananasik", uuid: "d92db210a1a7414889b1bfcb1c9f1320" },
         { name: "vehers", uuid: "581db42b6c6442d6a9ae5949110d03f9" },
         { name: "Artemii023", uuid: "c65be684db7646d68471fc094f7c82ec" },
@@ -361,24 +361,26 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "PianoCube3703", uuid: "2c3193e6e9774c93af1ffd7463878c81" },
         { name: "SergZt2279", uuid: "9547165d66014ab698c8a4e026d1a4d8" },
         { name: "Simakin", uuid: "75a478b8eb1b41b7ad610144617ec5d8" },
-        { name: "_ReadTree_", uuid: "8730a159-4221-453e-b686-63f660c6ed62"}
+        { name: "_ReadTree_", uuid: "8730a159-4221-453e-b686-63f660c6ed62" },
+        { name: "VolodyaBroBY", uuid: "d8568d18-89cd-4676-bcee-924851155b25" },
+        { name: "deloVVoy", UUID: "e36ff74a-fbed-449f-ae92-deaec8562550" },
     ];
 
     function loadBlacklist() {
-        const blacklistUl = document.getElementById('blacklist');
+        const blacklistUl = document.getElementById("blacklist");
         const fragment = document.createDocumentFragment();
 
-        blacklist.forEach(player => {
-            const li = document.createElement('li');
-            li.style.animation = 'fadeIn 1s ease-in-out';
+        blacklist.forEach((player) => {
+            const li = document.createElement("li");
+            li.style.animation = "fadeIn 1s ease-in-out";
 
-            const img = document.createElement('img');
+            const img = document.createElement("img");
             img.src = `https://mc-heads.net/avatar/${player.uuid}`;
             img.alt = `${player.name}'s face`;
 
-            const link = document.createElement('a');
+            const link = document.createElement("a");
             link.href = `https://namemc.com/profile/${player.uuid}`;
-            link.target = '_blank';
+            link.target = "_blank";
             link.textContent = player.name;
 
             li.appendChild(img);
@@ -391,11 +393,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showNotification(message) {
-        const notification = document.getElementById('notification');
+        const notification = document.getElementById("notification");
         notification.textContent = message;
-        notification.style.visibility = 'visible';
+        notification.style.visibility = "visible";
         setTimeout(() => {
-            notification.style.visibility = 'hidden';
+            notification.style.visibility = "hidden";
         }, 3000);
     }
 

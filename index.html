@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>ЧС Сосмарка</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
     <script type="text/javascript" src="scripts/checker.js"></script>
-    <link rel="icon" type="image/x-icon" href="ico.png">
-    <meta property="og:site_name" content="ЧС Сосмарка">
-    <meta property="og:image" content="ico.png">
-    <meta name="description" content="Проверьте себя есть ли вы в чёрном списке Второй Сосмаркской Империи на приватном сервере Майнкрафт СПмакси">
-    <meta property="og:description" content="Проверьте себя есть ли вы в чёрном списке Второй Сосмаркской Империи на приватном сервере Майнкрафт СПмакси">
-    <meta name="keywords" content="Чёрный список сосмарк, сосмарк, Вторая Сосмаркская Империя, СПмини, СПмакси">
+    <link rel="icon" type="image/x-icon" href="ico.png" />
+    <meta property="og:site_name" content="ЧС Сосмарка" />
+    <meta property="og:image" content="ico.png" />
+    <meta name="description"
+        content="Проверьте себя есть ли вы в чёрном списке Второй Сосмаркской Империи на приватном сервере Майнкрафт СПмакси" />
+    <meta property="og:description"
+        content="Проверьте себя есть ли вы в чёрном списке Второй Сосмаркской Империи на приватном сервере Майнкрафт СПмакси" />
+    <meta name="keywords" content="Чёрный список сосмарк, сосмарк, Вторая Сосмаркская Империя, СПмини, СПмакси" />
     <script defer>
         console.log(`
 ░█████╗░██╗░░░██╗███████╗  ░██████╗░█████╗░░██████╗  
@@ -28,8 +31,10 @@
 ██║░░██║██╔══╝░░██║░░░██║░╚═══██╗  ██╔══██╗██╔══██║██║░░░░░██║░░░░░░╚═══██╗
 ██████╔╝███████╗╚██████╔╝██████╔╝  ██████╦╝██║░░██║███████╗███████╗██████╔╝
 ╚═════╝░╚══════╝░╚═════╝░╚═════╝░  ╚═════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░
-`)</script>
+`);
+    </script>
 </head>
+
 <body>
     <header>
         <nav>
@@ -39,11 +44,12 @@
             </ul>
         </nav>
     </header>
-    <noscript>You need to enable JavaScript to run this app.</noscript>  
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="notification" class="notification"></div>
     <div class="container">
         <h1>Чекер ЧС</h1>
-        <input type="text" id="playerName" placeholder="Введите никнейм" list="suggestions" oninput="updateSuggestions()" autocomplete="off">
+        <input type="text" id="playerName" placeholder="Введите никнейм" list="suggestions"
+            oninput="updateSuggestions()" autocomplete="off" />
         <datalist id="suggestions"></datalist>
         <button onclick="checkBlacklist()">Проверить</button>
         <div id="result"></div>
@@ -53,4 +59,5 @@
         Технология чекер ЧС разработана во Второй Сосмаркской Империи 2024 год
     </footer>
 </body>
+
 </html>

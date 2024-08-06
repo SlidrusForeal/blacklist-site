@@ -103,7 +103,7 @@ const blacklist = [
     "prosto_anandy", "Tekletu", "Tigranitos", "DanyaNeyk", "Mazir0k", "srekko_f",
     "Wioaru", "Myatnaya", "lobster_dobrias", "__Risa", "Elae4ik", "Joosyaww",
     "Srastich", "Kislota", "Homura128", "prismerr", "DmitriyNagiev57", "ByHanko",
-    "MitoBBN", "A9C3C6_iz_658", "s1ben", "miyalvoda", "Reamix_", "Enarioo","Tefynder","n_15","IvTuSTAFF","_ReadTree_"
+    "MitoBBN", "A9C3C6_iz_658", "s1ben", "miyalvoda", "Reamix_", "Enarioo", "Tefynder", "n_15", "IvTuSTAFF", "_ReadTree_", "VolodyaBroBY", "deloVVoy"
 ].map(name => name.toLowerCase());
 
 function applyAnimation(element, animationName) {
@@ -126,7 +126,7 @@ function showNotification(message) {
 function checkBlacklist() {
     const playerName = document.getElementById('playerName').value.toLowerCase();
     const resultDiv = document.getElementById('result');
-    
+
     showNotification("Запрос обрабатывается...");
 
     setTimeout(() => {
